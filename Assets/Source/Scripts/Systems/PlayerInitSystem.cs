@@ -24,6 +24,7 @@ namespace Source.Scripts.Systems
             playerComponent.MoveSpeed = _staticData.PlayerSpeed;
             playerComponent.Transform = playerGameObject.transform;
             playerComponent.CharacterController = playerGameObject.GetComponent<CharacterController>();
+            playerComponent.Animator = playerGameObject.GetComponent<Animator>();
         }
     }
 }

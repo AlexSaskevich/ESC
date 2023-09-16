@@ -29,6 +29,7 @@ namespace Source.Scripts
                 .Add(new PlayerInputSystem())
                 .Add(new PlayerRotationSystem())
                 .Add(new PlayerMovementSystem())
+                .Add(new PlayerAnimationSystem())
                 .Inject(Configuration)
                 .Inject(SceneComponent)
                 .Inject(runtimeData);

@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: StaticData
   m_EditorClassIdentifier: 
   <PlayerPrefab>k__BackingField: {fileID: 3364491671690714380, guid: 68547129b57008f4c85f364d14fea937, type: 3}
-  <PlayerSpeed>k__BackingField: 5
+  <PlayerSpeed>k__BackingField: 2.5
