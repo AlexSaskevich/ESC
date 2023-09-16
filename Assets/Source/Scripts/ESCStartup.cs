@@ -13,7 +13,7 @@ namespace Source.Scripts
         private EcsSystems _updateSystems;
         private EcsSystems _fixedUpdateSystems;
 
-        [field: SerializeField] public StaticData Configuration { get; private set; }
+        [field: SerializeField] public Setup Setup { get; private set; }
         [field: SerializeField] public SceneComponent SceneComponent { get; private set; }
 
         private void Start()
@@ -30,7 +30,8 @@ namespace Source.Scripts
                 .Add(new PlayerRotationSystem())
                 .Add(new PlayerMovementSystem())
                 .Add(new PlayerAnimationSystem())
-                .Inject(Configuration)
+                .Add(new CameraFollowSystem())
+                .Inject(Setup)
                 .Inject(SceneComponent)
                 .Inject(runtimeData);
 

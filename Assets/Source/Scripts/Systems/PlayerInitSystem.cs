@@ -8,7 +8,7 @@ namespace Source.Scripts.Systems
     public class PlayerInitSystem : IEcsInitSystem
     {
         private EcsWorld _ecsWorld;
-        private StaticData _staticData;
+        private Setup _setup;
         private SceneComponent _sceneComponent;
 
         public void Init()
@@ -18,10 +18,10 @@ namespace Source.Scripts.Systems
             ref PlayerComponent playerComponent = ref playerEntity.Get<PlayerComponent>();
             ref PlayerInputComponent playerInputComponent = ref playerEntity.Get<PlayerInputComponent>();
 
-            GameObject playerGameObject = Object.Instantiate(_staticData.PlayerPrefab,
+            GameObject playerGameObject = Object.Instantiate(_setup.PlayerPrefab,
                 _sceneComponent.PlayerSpawnPoint.position, Quaternion.identity);
             
-            playerComponent.MoveSpeed = _staticData.PlayerSpeed;
+            playerComponent.MoveSpeed = _setup.PlayerSpeed;
             playerComponent.Transform = playerGameObject.transform;
             playerComponent.CharacterController = playerGameObject.GetComponent<CharacterController>();
             playerComponent.Animator = playerGameObject.GetComponent<Animator>();
