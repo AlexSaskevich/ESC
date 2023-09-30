@@ -1,8 +1,9 @@
 using Leopotam.Ecs;
-using Source.Scripts.Components;
+using Source.Scripts.Camera;
+using Source.Scripts.Player.Systems;
 using Source.Scripts.ScriptableObjects;
 using Source.Scripts.Services;
-using Source.Scripts.Systems;
+using Source.Scripts.Weapon.Systems;
 using UnityEngine;
 
 namespace Source.Scripts
@@ -30,7 +31,11 @@ namespace Source.Scripts
                 .Add(new PlayerRotationSystem())
                 .Add(new PlayerMovementSystem())
                 .Add(new PlayerAnimationSystem())
-                .Add(new CameraFollowSystem())
+                .Add(new WeaponShootSystem())
+                .Add(new SpawnProjectileSystem())
+                .Add(new ProjectileMoveSystem())
+                .Add(new ProjectileHitSystem())
+                .Add(new ReloadingSystem())
                 .Inject(Setup)
                 .Inject(SceneComponent)
                 .Inject(runtimeData);

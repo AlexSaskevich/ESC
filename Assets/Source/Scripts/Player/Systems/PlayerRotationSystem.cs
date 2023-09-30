@@ -1,21 +1,21 @@
 ﻿using Leopotam.Ecs;
-using Source.Scripts.Components;
+using Source.Scripts.Player.Components;
 using UnityEngine;
 
-namespace Source.Scripts.Systems
+namespace Source.Scripts.Player.Systems
 {
     public class PlayerRotationSystem : IEcsRunSystem
     {
-        private EcsFilter<PlayerComponent> _filter;
+        private EcsFilter<Components.Player> _filter;
         private SceneComponent _sceneComponent;
 
         public void Run()
         {
             foreach (int i in _filter)
             {
-                ref PlayerComponent playerComponent = ref _filter.Get1(i);
+                ref Components.Player player = ref _filter.Get1(i);
 
-                Plane playerPlane = new(Vector3.up, playerComponent.Transform.position);
+                Plane playerPlane = new(Vector3.up, player.Transform.position);
                 Ray ray = _sceneComponent.MainCamera.ScreenPointToRay(Input.mousePosition);
 
                 if (playerPlane.Raycast(ray, out float hitDistance) == false)
@@ -23,7 +23,7 @@ namespace Source.Scripts.Systems
                     continue;
                 }
 
-                playerComponent.Transform.forward = ray.GetPoint(hitDistance) - playerComponent.Transform.position;
+                player.Transform.forward = ray.GetPoint(hitDistance) - player.Transform.position;
             }
         }
     }

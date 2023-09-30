@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 
-namespace Source.Scripts.Components
+namespace Source.Scripts.Player.Components
 {
-    public struct PlayerComponent
+    public struct Player
     {
         public Animator Animator;
         public CharacterController CharacterController;
